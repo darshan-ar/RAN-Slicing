@@ -11,12 +11,11 @@ B1 = sum(B1,[])
 c_max=np.amax(B)
 B_status= np.zeros(len(B1))
 M=2
-M1=6
+M1=64
 M2=60
 MR=[M1,M2]
 MR.sort(reverse=True)
 print(sorted(B1))
-
 
 for m in MR:
     for c in reversed(range(29)):
@@ -32,7 +31,7 @@ for m in MR:
                 flag = False
                 for x in range(len(n1)):
                     if x*c>=m:
-                        print("Same {} RBs with mcs {} allocated for MVNO  with bit rate requirements {}".format(x,c,m))
+                        print("Same: {} RBs with mcs {} allocated for MVNO  with bit rate requirements {}".format(x,c,m))
                         flag=True
                         for p in range(x):
                             B_status[n1[p]]=1
@@ -54,7 +53,7 @@ for m in MR:
                             B_status[n2[0]]=1
                         if v>=m:
                             flag1=True
-                            print("{} RBs with mcs {} allocated for MVNO  with bit rate requirements {}".format(len(q),q,m))
+                            print("{} RBs with mcs {} = {} allocated for MVNO  with bit rate requirements {}".format(len(q),min(q),q,m))
                             break
                     if flag1==True:
                         break
