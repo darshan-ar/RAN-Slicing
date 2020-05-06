@@ -17,27 +17,54 @@ for i in range(B):
     Bs1=np.concatenate((Bs1,Bs[i]),axis=1)
 B=Bs1.tolist()
 B = sum(B,[])
-print(B)
+
 Bsort=sorted(B)
-print(Bsort)
+
 B = Bsort[16:]
-print(B)
+
 print("Now Benchmarking our algorithm with static allocation methods for 1 TTI")
 
 p=[]
+q=[]
 print("******************************************************************************************************************************************")
-p.append(lowest_mcs.calculate(B,D))
+a,s1=lowest_mcs.calculate(B,D)
 print("******************************************************************************************************************************************")
-p.append(highest_mcs.calculate(B,D))
+b,s2=highest_mcs.calculate(B,D)
 print("******************************************************************************************************************************************")
-p.append(average_mcs.calculate(B,D))
+c,s3=average_mcs.calculate(B,D)
 print("******************************************************************************************************************************************")
-p.append(random_mcs.calculate(B,D))
+d,s4=random_mcs.calculate(B,D)
 print("******************************************************************************************************************************************")
-p.append(rsep.calculate(B,D))
+e,s5=rsep.calculate(B,D)
+print("******************************************************************************************************************************************")
+
+if a==0 or s1 !=0:
+    print("Lowest MCS level selection yields no result")
+else:
+    p.append(a)
+    q.append('Lowest MCS selection')
+if b==0 or s2!=0:
+    print("Highest MCS level selection yields no result")
+else:
+    p.append(b)
+    q.append('Highest MCS selection')
+if c==0 or s3!=0:
+    print("Average MCS level selection yields no result")
+else:
+    p.append(c)
+    q.append('Average MCS selection')
+if d==0 or s4!=0:
+    print("Random MCS level selection yields no result")
+else:
+    p.append(d)
+    q.append('Random MCS selection')
+if e==0 or s5!=0:
+    print("RSEP MCS level selection yields no result")
+else:
+    p.append(e)
+    q.append('RSEP MCS selection')
 
 #Plot details
-q=['Lowest MCS selection','Highest MCS selection','Average MCS selection','Random MCS selection','RSEP algorithm']
 w=0.3
 r = np.arange(len(p))
 
