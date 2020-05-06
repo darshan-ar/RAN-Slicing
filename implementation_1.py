@@ -7,11 +7,11 @@ B3 = np.random.randint(1,10,(4,4))
 
 B = np.concatenate((B1,B2,B3),axis=1)
 B1=B.tolist()
-B1 = sum(B1,[])
+B1 = [1, 1, 1, 1, 1, 1, 1, 2, 2, 2, 3, 3, 3, 3, 3, 3, 4, 4, 4, 4, 5, 5, 5, 5, 5, 6, 6, 6, 6, 6, 6, 6, 6, 7, 7, 7, 7, 7, 8, 8, 8, 8, 8, 8, 8, 8, 9, 9]
 c_max=np.amax(B)
 B_status= np.zeros(len(B1))
 M=2
-M1=64
+M1=8
 M2=60
 MR=[M1,M2]
 MR.sort(reverse=True)
